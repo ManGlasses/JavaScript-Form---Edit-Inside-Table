@@ -1,77 +1,56 @@
-var numberRow = ''
-var fullNameText
-var addressText
+var editRow = ''
 
 function insertTable() {
-    if (numberRow != '') {
+    if (editRow != '') {
         return null
     }
-    numberRow = document.getElementById('dataTable').rows.length
-    fullNameText = document.getElementById('fullName').value
-    addressText = document.getElementById('address').value
 
-    var row3MarginTop = document.getElementById('row3').style.marginTop.replace(/rem/, '')
+    var rowLength = document.getElementById('dataTable').rows.length
+    var fullNameValue = document.getElementById('txtFullName').value
+    var addressValue = document.getElementById('txtAddress').value
 
     document.getElementById('dataTable').insertAdjacentHTML('beforeend', `
         <tr>
-            <td>${numberRow}</td>
-            <td>${fullNameText}</td>
-            <td>${addressText}</td>
+            <td>${rowLength}</td>
+            <td>${fullNameValue}</td>
+            <td>${addressValue}</td>
             <td>
-                <span onClick='editTable("${numberRow}")'>Edit</span>
+                <span onClick='editTable("${rowLength}")'>Edit</span>
             </td>
         </tr>
     `)
 
-    if (row3MarginTop > 2) {
-        document.getElementById('row3').style.marginTop = `${row3MarginTop - 2.15}rem`;
+    // ระยะห่างของตารางกับ คู่มือการแก่ไข
+    var row3MarginTop = document.getElementById('row3').style.marginTop.replace(/%/, '')
+    if (row3MarginTop > 6) {
+        document.getElementById('row3').style.marginTop = `${row3MarginTop - 3.27}%`;
     }
 
     clearForm()
 }
 
-function editTable(editRow) {
-    numberRow = editRow
-    fullNameText = document.getElementById('dataTable').rows[numberRow].cells[1].innerHTML
-    addressText = document.getElementById('dataTable').rows[numberRow].cells[2].innerHTML
+function editTable(numberRow) {
+    var fullNameValue = document.getElementById('dataTable').rows[numberRow].cells[1].innerHTML
+    var addressValue = document.getElementById('dataTable').rows[numberRow].cells[2].innerHTML
 
-    document.getElementById('dataTable').rows[numberRow].cells[1].innerHTML = `
-    <input id='fullNameInTable${numberRow}' type="text" placeholder="กรุณากรอกชื่อ นามสกุล">`
+    document.getElementById('txtFullName').value = fullNameValue
+    document.getElementById('txtAddress').value = addressValue
 
-    document.getElementById('dataTable').rows[numberRow].cells[2].innerHTML = `
-    <textarea id="addressInTable${numberRow}" placeholder="บ้านเลขที่&#10;ถนน&#10;ตำบล&#10;อำเภอ จังหวัด"></textarea>`
-
-    document.getElementById('dataTable').rows[numberRow].cells[3].innerHTML = `
-    <span onClick='updateTable()'>Save&nbsp;&nbsp;</span>
-    <span onClick='cancel()'>&nbsp;&nbsp;Cancel</span>`
-
-    // document.getElementById('fullName').value = fullNameText
-    // document.getElementById('address').value = addressText
-    document.getElementById(`fullNameInTable${numberRow}`).value = fullNameText
-    document.getElementById(`addressInTable${numberRow}`).value = addressText
+    editRow = numberRow
 }
 
 function updateTable() {
-    if (numberRow == '') {
+    if (editRow == '') {
         return null
     }
 
-    fullNameText = document.getElementById(`fullNameInTable${numberRow}`).value
-    addressText = document.getElementById(`addressInTable${numberRow}`).value
+    var fullNameValue = document.getElementById('txtFullName').value
+    var addressValue = document.getElementById('txtAddress').value
 
-    document.getElementById('dataTable').rows[numberRow].cells[1].innerHTML = fullNameText
-    document.getElementById('dataTable').rows[numberRow].cells[2].innerHTML = addressText
+    document.getElementById('dataTable').rows[editRow].cells[1].innerHTML = fullNameValue
+    document.getElementById('dataTable').rows[editRow].cells[2].innerHTML = addressValue
 
     clearForm()
-}
 
-function cancel() {
-    document.getElementById('dataTable').rows[numberRow].cells[1].innerHTML = `
-    `
-
-    document.getElementById('dataTable').rows[numberRow].cells[2].innerHTML = `
-    <textarea id="addressInTable" placeholder="บ้านเลขที่&#10;ถนน&#10;ตำบล&#10;อำเภอ จังหวัด"></textarea>`
-
-    document.getElementById('dataTable').rows[numberRow].cells[3].innerHTML = `
-    <span onClick='editTable("${numberRow}")'>Edit</span>`
+    editRow = ''
 }

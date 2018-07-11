@@ -30,8 +30,8 @@
                     <span>ที่อยู่</span>
                 </div>
                 <div class="container-col">
-                    <input id="fullName" type="text" placeholder="กรุณากรอกชื่อ นามสกุล">
-                    <textarea id="address" placeholder="บ้านเลขที่&#10;ถนน&#10;ตำบล&#10;อำเภอ จังหวัด"></textarea>
+                    <input id="txtFullName" type="text" placeholder="กรุณากรอกชื่อ นามสกุล">
+                    <textarea id="txtAddress" placeholder="บ้านเลขที่&#10;ถนน&#10;ตำบล&#10;อำเภอ จังหวัด"></textarea>
                     <input class="btnSave" type="button" value="บันทึก" onclick="checkInput();" />
                 </div>
             </div>
@@ -56,21 +56,22 @@
         <div id="row2" class="container-row">
             <div class="box-left">
                 <table class="table">
-                    <tbody id="dataTable">
+                    <thead>
                         <tr>
                             <th>ลำดับ</th>
                             <th>ชื่อ-นามสกุล</th>
                             <th>ที่อยู่</th>
                             <th>&nbsp;</th>
                         </tr>
-                    </tbody>
+                    </thead>
+                    <tbody id="dataTable"></tbody>
                 </table>
             </div>
         </div>
         <!-- End Table -->
 
         <!-- Start Manual Edit -->
-        <div id="row3" class="container-row" style="margin-top: 11.79rem;">
+        <div id="row3" class="container-row" style="margin-top: 12.87%;">
             <div class="box-right">
                 <div class="manual">
                     <h1>การแก้ไข</h1>

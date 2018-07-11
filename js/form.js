@@ -1,17 +1,15 @@
 function clearForm() {
-    document.getElementById('fullName').value = ''
-    document.getElementById('address').value = ''
-
-    numberRow = ''
+    document.getElementById('txtFullName').value = ''
+    document.getElementById('txtAddress').value = ''
 }
 
 function checkInput() {
-    var fullNameText = document.getElementById('fullName').value
-    var addressText = document.getElementById('address').value
-    var fullNameLength = fullNameText.length
-    var addressLength = addressText.length
+    var fullNameValue = document.getElementById('txtFullName').value
+    var addressValue = document.getElementById('txtAddress').value
+    var fullNameLength = fullNameValue.length
+    var addressLength = addressValue.length
 
-    if (/\d/.test(fullNameText) == true || /\d/.test(addressText) == true) {
+    if (/\d/.test(fullNameValue) == true || /\d/.test(addressValue) == true) {
         alert('กรุณาอย่าใส่ข้อมูลที่เป็นตัวเลข ให้ใส่ข้อมูลที่เป็นตัวอักษรเท่านั้น')
     }
 

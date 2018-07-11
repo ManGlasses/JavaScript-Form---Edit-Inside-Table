@@ -1,30 +1,36 @@
 .table {
-    width: 60rem;
+    width: 50rem;
     border: 2px solid gray;
     border-collapse: collapse;
-    tbody {
-        td,
-        th {
+    thead {
+        tr:first-child {
+            color: white;
+            background-color: #74af06;
+        }
+        tr th {
             padding: 10px;
             border: 1px solid green;
             text-align: left;
         }
-        td:last-child {
-            text-align: center;
-            span {
-                color: blue;
-                cursor: pointer;
-            }
-        }
+    }
+    tbody {
         tr:nth-child(even) {
             background-color: #b1b0a5;
         }
         tr:nth-child(odd) {
             background-color: #dddddd;
         }
-        tr:first-child {
-            color: white;
-            background-color: #74af06;
+        tr td {
+            padding: 10px;
+            border: 1px solid green;
+            text-align: left;
+        }
+        tr td:last-child {
+            text-align: center;
+            span {
+                color: blue;
+                cursor: pointer;
+            }
         }
     }
 }
