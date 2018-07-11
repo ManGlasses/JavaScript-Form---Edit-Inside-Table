@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height initial-scale=1">
+
+    <link rel="stylesheet" href="css/box.css">
+    <link rel="stylesheet" href="css/button.css">
+    <link rel="stylesheet" href="css/container.css">
+    <link rel="stylesheet" href="css/manual.css">
+    <link rel="stylesheet" href="css/page.css">
+    <link rel="stylesheet" href="css/table.css">
+
+    <script src="js/form.js"></script>
+    <script src="js/table.js"></script>
+
+    <title>JavaScript - Form</title>
+</head>
+
+<body>
+    <div id="main" class="container-col">
+
+        <div id="row1" class="container-row">
+
+            <!-- Start Form -->
+            <div class="container-row box-left">
+                <div class="container-col">
+                    <span>ชื่อ-นามสกุล</span>
+                    <span>ที่อยู่</span>
+                </div>
+                <div class="container-col">
+                    <input id="fullName" type="text" placeholder="กรุณากรอกชื่อ นามสกุล">
+                    <textarea id="address" placeholder="บ้านเลขที่&#10;ถนน&#10;ตำบล&#10;อำเภอ จังหวัด"></textarea>
+                    <input class="btnSave" type="button" value="บันทึก" onclick="checkInput();" />
+                </div>
+            </div>
+            <!-- End Form -->
+
+            <!-- Start Manual Insert -->
+            <div class="box-right">
+                <div class="manual">
+                    <h1>การเพิ่ม</h1>
+                    <ul>
+                        <li>กรอกชื่อนามสกุล ที่อยู่</li>
+                        <li>กดปุ่ม บันทึก</li>
+                        <li>ข้อมูลเพิ่มลงในตาราง ในแถวใหม่</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- End Manual Insert -->
+
+        </div>
+
+        <!-- Start Table -->
+        <div id="row2" class="container-row">
+            <div class="box-left">
+                <table class="table">
+                    <tbody id="dataTable">
+                        <tr>
+                            <th>ลำดับ</th>
+                            <th>ชื่อ-นามสกุล</th>
+                            <th>ที่อยู่</th>
+                            <th>&nbsp;</th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- End Table -->
+
+        <!-- Start Manual Edit -->
+        <div id="row3" class="container-row" style="margin-top: 11.79rem;">
+            <div class="box-right">
+                <div class="manual">
+                    <h1>การแก้ไข</h1>
+                    <ul>
+                        <li>กดปุ่ม Edit ที่แต่ละแถว</li>
+                        <li>ข้อมูลแสดงใน form</li>
+                        <li>กดปุุ่ม บันทึก</li>
+                        <li>ข้อมุลอัพเดตลงในตาราง แถวที่กด Edit</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- End Manual Edit -->
+    </div>
+
+</body>
+
+</html>
