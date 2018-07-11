@@ -1,6 +1,8 @@
 function clearForm() {
     document.getElementById('fullName').value = ''
     document.getElementById('address').value = ''
+
+    numberRow = ''
 }
 
 function checkInput() {
