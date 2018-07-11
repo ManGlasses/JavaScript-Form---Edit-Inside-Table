@@ -18,7 +18,8 @@ body .container-col .container-row:nth-child(1) .container-row.box-left .contain
   font-size: 20px; }
 
 body .container-col .container-row:nth-child(1) .container-row.box-left .container-col:last-child textarea {
-  height: 5.4rem; }
+  height: 5.4rem;
+  resize: none; }
 
 body .container-col .container-row:nth-child(1) .container-row.box-left .container-col:last-child input[type='button'] {
   margin-right: 8rem; }

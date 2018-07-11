@@ -23,7 +23,6 @@ function checkInput() {
 
     else {
         insertTable();
-        updateTable();
     }
 
 }
