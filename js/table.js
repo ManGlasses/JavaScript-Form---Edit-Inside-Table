@@ -1,5 +1,3 @@
-
-
 function insertTable() {
 
     // นำค่าจาก form ออกมาเก็บไว้ พร้อมทั้งกำหนดลำดับแถว
@@ -10,18 +8,18 @@ function insertTable() {
     // สร้างแถวใหม่ไปต่อท้ายตาราง
     document.getElementById('dataTable').insertAdjacentHTML('beforeend', `
         <tr>
-            <td>${rowLength}</td>
+            <td>${rowLength + 1}</td>
             <td>
                 <span id='fullNameValue${rowLength}'>${fullNameValue}</span>
-                <input id='edFullName${rowLength}' type='text' />
+                <input id='edFullName${rowLength}' type='text' placeholder='กรุณากรอกชื่อ นามสกุล' />
             </td>
             <td>
                 <span id='addressValue${rowLength}'>${addressValue}</span>
-                <input id='edAddress${rowLength}' type='text' />
+                <input id='edAddress${rowLength}' type='text' placeholder='บ้านเลขที่, ถนน, ตำบล, อำเภอ, จังหวัด' />
             </td>
             <td>
                 <span id='btnEdit${rowLength}' onClick='editTable("${rowLength}")'>Edit</span>
-                <span id='btnSave${rowLength}' onClick='updateTable("${rowLength}")'>Save</span>
+                <span id='btnSave${rowLength}' onClick='checkInput("${rowLength}")'>Save</span>
                 <span id='btnCancel${rowLength}' onClick='btnCancel_Click("${rowLength}")'>Cancel</span>
             </td>
         </tr>
@@ -37,8 +35,8 @@ function insertTable() {
 
     // ระยะห่างของตารางกับ คู่มือการแก่ไข
     var row3MarginTop = document.getElementById('row3').style.marginTop.replace(/%/, '')
-    if (row3MarginTop > 6) {
-        document.getElementById('row3').style.marginTop = `${row3MarginTop - 3.27}%`;
+    if (row3MarginTop > 2.48) {
+        document.getElementById('row3').style.marginTop = `${row3MarginTop - 3.33}%`;
     }
 
     clearForm()

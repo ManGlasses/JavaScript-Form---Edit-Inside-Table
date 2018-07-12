@@ -1,11 +1,9 @@
 .btnSave {
-  background-color: blue;
+  background-color: #018DFF;
   color: white;
   text-align: center;
   box-sizing: border-box;
-  width: 8rem;
   border: none;
   border-radius: 12px;
   padding: 15px;
-  font-size: 20px;
   cursor: pointer; }

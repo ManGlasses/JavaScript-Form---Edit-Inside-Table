@@ -5,11 +5,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, height=device-height initial-scale=1">
 
-    <link rel="stylesheet" href="css/box.css">
-    <link rel="stylesheet" href="css/button.css">
-    <link rel="stylesheet" href="css/container.css">
-    <link rel="stylesheet" href="css/manual.css">
     <link rel="stylesheet" href="css/page.css">
+    <link rel="stylesheet" href="css/container.css">
+    <link rel="stylesheet" href="css/box.css">
+    <link rel="stylesheet" href="css/form.css">
+    <link rel="stylesheet" href="css/button.css">
+    <link rel="stylesheet" href="css/manual.css">
     <link rel="stylesheet" href="css/table.css">
 
     <script src="js/form.js"></script>
@@ -24,14 +25,16 @@
         <div id="row1" class="container-row">
 
             <!-- Start Form -->
-            <div class="container-row box-left">
-                <div class="container-col">
+            <div class="box-left form">
+                <div class="container-row">
                     <span>ชื่อ-นามสกุล</span>
-                    <span>ที่อยู่</span>
-                </div>
-                <div class="container-col">
                     <input id="txtFullName" type="text" placeholder="กรุณากรอกชื่อ นามสกุล">
+                </div>
+                <div class="container-row">
+                    <span>ที่อยู่</span>
                     <textarea id="txtAddress" placeholder="บ้านเลขที่&#10;ถนน&#10;ตำบล&#10;อำเภอ จังหวัด"></textarea>
+                </div>
+                <div class="container-row">
                     <input class="btnSave" type="button" value="บันทึก" onclick="checkInput();" />
                 </div>
             </div>
@@ -71,7 +74,7 @@
         <!-- End Table -->
 
         <!-- Start Manual Edit -->
-        <div id="row3" class="container-row" style="margin-top: 12.87%;">
+        <div id="row3" class="container-row" style="margin-top: 15.8%;">
             <div class="box-right">
                 <div class="manual">
                     <h1>การแก้ไข</h1>
@@ -85,6 +88,7 @@
             </div>
         </div>
         <!-- End Manual Edit -->
+
     </div>
 
 </body>

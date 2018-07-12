@@ -1,0 +1,34 @@
+$font-size_form: 20px;
+$font-family_form: arial;
+$width_span: 8rem;
+$width_txtForm: 12rem;
+$width_textarea: 12rem;
+$width_btnForm: 8rem;
+.form {
+    .container-row {
+        justify-content: center;
+        text-align: center;
+        * {
+            box-sizing: border-box;
+            margin-top: 0.5rem;
+            font-size: $font-size_form;
+        }
+        span {
+            font-family: $font-family_form;
+            width: $width_span;
+        }
+        input[type='text'] {
+            width: $width_txtForm;
+        }
+        textarea {
+            font-family: $font-family_form;
+            width: $width_textarea;
+            height: 5.4rem;
+            resize: none;
+        }
+        input[type='button'] {
+            width: $width_btnForm;
+            margin-left: 4rem;
+        }
+    }
+}

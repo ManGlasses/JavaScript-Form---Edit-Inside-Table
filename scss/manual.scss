@@ -1,6 +1,7 @@
+$width_manual: 25rem;
 .manual {
     box-sizing: border-box;
-    width: 25rem;
+    width: $width_manual;
     border: 1px solid black;
 }
 

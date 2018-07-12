@@ -1,19 +1,18 @@
-@mixin box {
+.box-left,
+.box-center,
+.box-right {
     box-sizing: border-box;
 }
 
 .box-left {
-    @include box;
     margin-right: auto;
 }
 
 .box-center {
-    @include box;
     margin-left: auto;
     margin-right: auto;
 }
 
 .box-right {
-    @include box;
     margin-left: auto;
 }
