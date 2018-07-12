@@ -1,23 +1,15 @@
+@import 'frameworks/_table';
 $font-size_table: 20px;
 $width_cell1: 8rem;
 $width_cell2: 20rem;
 $width_cell3: 17rem;
 $width_cell4: 6rem;
+$height_row: 1.5rem;
 .table {
     margin-top: 0.5rem;
-    border: 2px solid #87866C;
-    border-collapse: collapse;
-    tr td,
-    tr th {
-        height: 1.5rem;
-        padding: 10px;
-        border: 1px solid #BBD075;
-        text-align: left;
-    }
     thead {
-        tr:first-child {
-            color: white;
-            background-color: #A8C843;
+        tr th {
+            height: $height_row;
         }
         tr th:nth-child(1) {
             width: $width_cell1;
@@ -33,11 +25,8 @@ $width_cell4: 6rem;
         }
     }
     tbody {
-        tr:nth-child(even) {
-            background-color: #E8F1D2;
-        }
-        tr:nth-child(odd) {
-            background-color: #E2D5E7;
+        tr td {
+            height: $height_row;
         }
         tr td:nth-child(2) {
             input {

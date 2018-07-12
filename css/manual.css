@@ -1,8 +1,0 @@
-.manual {
-  box-sizing: border-box;
-  width: 25rem;
-  border: 1px solid black; }
-
-#row1 .box-right .manual {
-  margin-top: 0.5rem;
-  padding-bottom: 1rem; }

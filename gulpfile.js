@@ -4,12 +4,12 @@ var sass = require('gulp-sass')
 var browserSync = require('browser-sync')
 
 gulp.task('clean-css', function () {
-  return gulp.src('css/*.css', { read: false })
+  return gulp.src('css/main.css', { read: false })
     .pipe(cleanCss());
 });
 
 gulp.task('scss', ['clean-css'], function () {
-  return gulp.src('scss/*.scss')
+  return gulp.src('scss/main.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest('css'));
 });
@@ -23,7 +23,7 @@ gulp.task('browser-sync', function () {
 })
 
 gulp.task('default', ['browser-sync', 'scss'], function () {
-  gulp.watch('scss/*.scss', ['scss']);
+  gulp.watch('scss/**/*.scss', ['scss']);
   gulp.watch(['index.html'], browserSync.reload)
   gulp.watch(['css/*.css'], browserSync.reload)
   gulp.watch(['js/*.js'], browserSync.reload)
