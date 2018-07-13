@@ -7,13 +7,14 @@
 
     <link rel="stylesheet" href="css/main.css">
 
+    <script src="js/variable.js"></script>
     <script src="js/form.js"></script>
     <script src="js/table.js"></script>
 
     <title>JavaScript - Form</title>
 </head>
 
-<body>
+<body onload="form_Load();">
     <div id="main" class="container-col">
 
         <div id="row1" class="container-row">
@@ -22,11 +23,13 @@
             <div class="box-left form">
                 <div class="container-row">
                     <span>ชื่อ-นามสกุล</span>
-                    <input id="txtFullName" type="text" placeholder="กรุณากรอกชื่อ นามสกุล">
+                    <input id="txtFullName" oninput="lengthFullName();" type="text" placeholder="กรุณากรอกชื่อ นามสกุล" maxlength="30">
+                    <span id="countFullName"></span>
                 </div>
                 <div class="container-row">
                     <span>ที่อยู่</span>
-                    <textarea id="txtAddress" placeholder="บ้านเลขที่&#10;ถนน&#10;ตำบล&#10;อำเภอ จังหวัด"></textarea>
+                    <textarea id="txtAddress" oninput="lengthAddress();" placeholder="บ้านเลขที่&#10;ถนน&#10;ตำบล&#10;อำเภอ จังหวัด"></textarea>
+                    <span id="countAddress"></span>
                 </div>
                 <div class="container-row">
                     <input class="btnSave" type="button" value="บันทึก" onclick="checkInput();" />

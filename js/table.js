@@ -1,40 +1,31 @@
 function insertTable() {
 
-    // นำค่าจาก form ออกมาเก็บไว้ พร้อมทั้งกำหนดลำดับแถว
-    var rowLength = document.getElementById('dataTable').rows.length
-    var fullNameValue = document.getElementById('txtFullName').value
-    var addressValue = document.getElementById('txtAddress').value
+    let dataTable = document.getElementById('dataTable')
+    let txtFullName = document.getElementById('txtFullName')
+    let txtAddress = document.getElementById('txtAddress')
+
+    let rowLength = dataTable.rows.length
+    let txtFullNameValue = txtFullName.value
+    let txtAddressValue = txtAddress.value
 
     // สร้างแถวใหม่ไปต่อท้ายตาราง
-    document.getElementById('dataTable').insertAdjacentHTML('beforeend', `
+    dataTable.insertAdjacentHTML('beforeend', `
         <tr>
             <td>${rowLength + 1}</td>
             <td>
-                <span id='fullNameValue${rowLength}'>${fullNameValue}</span>
-                <input id='edFullName${rowLength}' type='text' placeholder='กรุณากรอกชื่อ นามสกุล' />
+                <span id='tbFullName${rowLength}'>${txtFullNameValue}</span>
             </td>
             <td>
-                <span id='addressValue${rowLength}'>${addressValue}</span>
-                <input id='edAddress${rowLength}' type='text' placeholder='บ้านเลขที่, ถนน, ตำบล, อำเภอ, จังหวัด' />
+                <span id='tbAddress${rowLength}'>${txtAddressValue}</span>
             </td>
             <td>
                 <span id='btnEdit${rowLength}' onClick='editTable("${rowLength}")'>Edit</span>
-                <span id='btnSave${rowLength}' onClick='checkInput("${rowLength}")'>Save</span>
-                <span id='btnCancel${rowLength}' onClick='btnCancel_Click("${rowLength}")'>Cancel</span>
             </td>
         </tr>
     `)
 
-    // ซ่อนปุ่ม save กับ cancel
-    document.getElementById(`btnSave${rowLength}`).style.display = 'none'
-    document.getElementById(`btnCancel${rowLength}`).style.display = 'none'
-
-    // ซ่อน input ใน table
-    document.getElementById(`edFullName${rowLength}`).style.display = 'none'
-    document.getElementById(`edAddress${rowLength}`).style.display = 'none'
-
     // ระยะห่างของตารางกับ คู่มือการแก่ไข
-    var row3MarginTop = document.getElementById('row3').style.marginTop.replace(/%/, '')
+    let row3MarginTop = document.getElementById('row3').style.marginTop.replace(/%/, '')
     if (row3MarginTop > 2.48) {
         document.getElementById('row3').style.marginTop = `${row3MarginTop - 3.33}%`;
     }
@@ -44,51 +35,83 @@ function insertTable() {
 
 function editTable(numberRow) {
 
-    // แสดงปุ่ม save และ cancel พร้อมกับซ่อน ปุ่ม edit
-    document.getElementById(`btnEdit${numberRow}`).style.display = 'none'
-    document.getElementById(`btnSave${numberRow}`).style.display = 'inline'
-    document.getElementById(`btnCancel${numberRow}`).style.display = 'inline'
+    let tbFullName = document.getElementById(`tbFullName${numberRow}`)
+    let tbAddress = document.getElementById(`tbAddress${numberRow}`)
+    let btnEdit = document.getElementById(`btnEdit${numberRow}`)
 
-    // นำค่าจากแถวที่เลือกมาเก็บไว้
-    var fullNameValue = document.getElementById(`fullNameValue${numberRow}`).innerHTML
-    var addressValue = document.getElementById(`addressValue${numberRow}`).innerHTML
+    let tbFullNameValue = tbFullName.innerHTML
+    let tbAddressValue = tbAddress.innerHTML
 
-    // แสดง input พร้อมกับ ซ่อนข้อความในตาราง
-    document.getElementById(`fullNameValue${numberRow}`).style.display = 'none'
-    document.getElementById(`addressValue${numberRow}`).style.display = 'none'
-    document.getElementById(`edFullName${numberRow}`).style.display = 'inline'
-    document.getElementById(`edAddress${numberRow}`).style.display = 'inline'
+    valueBeforeEdit._fullName[`${numberRow}`] = tbFullNameValue
+    valueBeforeEdit._address[`${numberRow}`] = tbAddressValue
 
-    // เพิ่ม input เข้าไปในแถวที่เลือก
-    document.getElementById(`edFullName${numberRow}`).value = fullNameValue
-    document.getElementById(`edAddress${numberRow}`).value = addressValue
+    tbFullName.insertAdjacentHTML('afterend', `
+        <input id='edFullName${numberRow}' type='text' placeholder='กรุณากรอกชื่อ นามสกุล' />
+    `)
+    tbAddress.insertAdjacentHTML('afterend', `
+        <input id='edAddress${numberRow}' type='text' placeholder='บ้านเลขที่, ถนน, ตำบล, อำเภอ, จังหวัด' />
+    `)
+    btnEdit.insertAdjacentHTML('afterend', `
+        <span id='btnSave${numberRow}' onClick='checkInput("${numberRow}")'>Save</span>
+        <span id='btnCancel${numberRow}' onClick='btnCancel_Click("${numberRow}")'>Cancel</span>
+    `)
+
+    tbFullName.innerHTML = ''
+    tbAddress.innerHTML = ''
+    btnEdit.remove()
+
+    let edFullName = document.getElementById(`edFullName${numberRow}`)
+    let edAddress = document.getElementById(`edAddress${numberRow}`)
+
+    edFullName.value = tbFullNameValue
+    edAddress.value = tbAddressValue
 
 }
 
 function updateTable(numberRow) {
 
-    // นำค่าที่อยู่ใน input มาเก็บไว้
-    var fullNameValue = document.getElementById(`edFullName${numberRow}`).value
-    var addressValue = document.getElementById(`edAddress${numberRow}`).value
+    let edFullName = document.getElementById(`edFullName${numberRow}`)
+    let edAddress = document.getElementById(`edAddress${numberRow}`)
+    let tbFullName = document.getElementById(`tbFullName${numberRow}`)
+    let tbAddress = document.getElementById(`tbAddress${numberRow}`)
+    let btnSave = document.getElementById(`btnSave${numberRow}`)
+    let btnCancel = document.getElementById(`btnCancel${numberRow}`)
 
-    // update
-    document.getElementById(`fullNameValue${numberRow}`).innerHTML = fullNameValue
-    document.getElementById(`addressValue${numberRow}`).innerHTML = addressValue
+    let edFullNameValue = edFullName.value
+    let edAddressValue = edAddress.value
 
-    btnCancel_Click(numberRow)
+    tbFullName.innerHTML = edFullNameValue
+    tbAddress.innerHTML = edAddressValue
+
+    btnSave.insertAdjacentHTML('beforebegin', `
+        <span id='btnEdit${numberRow}' onClick='editTable("${numberRow}")'>Edit</span>
+    `)
+
+    edFullName.remove()
+    edAddress.remove()
+    btnSave.remove()
+    btnCancel.remove()
 
 }
 
 function btnCancel_Click(numberRow) {
 
-    // แสดงค่าที่ update พร้อมทั้งเอา input ออก
-    document.getElementById(`fullNameValue${numberRow}`).style.display = 'inline'
-    document.getElementById(`addressValue${numberRow}`).style.display = 'inline'
-    document.getElementById(`edFullName${numberRow}`).style.display = 'none'
-    document.getElementById(`edAddress${numberRow}`).style.display = 'none'
+    let edFullName = document.getElementById(`edFullName${numberRow}`)
+    let edAddress = document.getElementById(`edAddress${numberRow}`)
+    let tbFullName = document.getElementById(`tbFullName${numberRow}`)
+    let tbAddress = document.getElementById(`tbAddress${numberRow}`)
+    let btnSave = document.getElementById(`btnSave${numberRow}`)
+    let btnCancel = document.getElementById(`btnCancel${numberRow}`)
 
-    // ซ่อนปุ่ม save และ cancel พร้อมกับแสดง ปุ่ม edit
-    document.getElementById(`btnEdit${numberRow}`).style.display = 'inline'
-    document.getElementById(`btnSave${numberRow}`).style.display = 'none'
-    document.getElementById(`btnCancel${numberRow}`).style.display = 'none'
+    btnSave.insertAdjacentHTML('beforebegin', `
+        <span id='btnEdit${numberRow}' onClick='editTable("${numberRow}")'>Edit</span>
+    `)
+
+    tbFullName.innerHTML = valueBeforeEdit._fullName[`${numberRow}`]
+    tbAddress.innerHTML = valueBeforeEdit._address[`${numberRow}`]
+
+    edFullName.remove()
+    edAddress.remove()
+    btnSave.remove()
+    btnCancel.remove()
 }
