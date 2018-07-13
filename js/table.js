@@ -8,7 +8,8 @@ function insertTable() {
     let txtFullNameValue = txtFullName.value
     let txtAddressValue = txtAddress.value
 
-    // สร้างแถวใหม่ไปต่อท้ายตาราง
+    // สร้างก่อนจบ
+    // เพิ่มแถว
     dataTable.insertAdjacentHTML('beforeend', `
         <tr>
             <td>${rowLength + 1}</td>
@@ -45,6 +46,8 @@ function editTable(numberRow) {
     valueBeforeEdit._fullName[`${numberRow}`] = tbFullNameValue
     valueBeforeEdit._address[`${numberRow}`] = tbAddressValue
 
+    // สร้างหลังจบ
+    // สร้างรูปแบบตารางใหม่
     tbFullName.insertAdjacentHTML('afterend', `
         <input id='edFullName${numberRow}' type='text' placeholder='กรุณากรอกชื่อ นามสกุล' />
     `)
@@ -56,6 +59,7 @@ function editTable(numberRow) {
         <span id='btnCancel${numberRow}' onClick='btnCancel_Click("${numberRow}")'>Cancel</span>
     `)
 
+    // remove รูปแบบตารางเก่า
     tbFullName.innerHTML = ''
     tbAddress.innerHTML = ''
     btnEdit.remove()
@@ -63,6 +67,7 @@ function editTable(numberRow) {
     let edFullName = document.getElementById(`edFullName${numberRow}`)
     let edAddress = document.getElementById(`edAddress${numberRow}`)
 
+    // ใส่ค่าให้ input ในตาราง
     edFullName.value = tbFullNameValue
     edAddress.value = tbAddressValue
 
@@ -80,13 +85,15 @@ function updateTable(numberRow) {
     let edFullNameValue = edFullName.value
     let edAddressValue = edAddress.value
 
+    // เปลี่ยนเป็นรูปแบบตารางเก่า
+    // update
     tbFullName.innerHTML = edFullNameValue
     tbAddress.innerHTML = edAddressValue
-
     btnSave.insertAdjacentHTML('beforebegin', `
         <span id='btnEdit${numberRow}' onClick='editTable("${numberRow}")'>Edit</span>
     `)
 
+    // remove รูปแบบตารางเดิม
     edFullName.remove()
     edAddress.remove()
     btnSave.remove()
@@ -103,13 +110,16 @@ function btnCancel_Click(numberRow) {
     let btnSave = document.getElementById(`btnSave${numberRow}`)
     let btnCancel = document.getElementById(`btnCancel${numberRow}`)
 
+    // เปลี่ยนเป็นรูปแบบตารางเก่า
     btnSave.insertAdjacentHTML('beforebegin', `
         <span id='btnEdit${numberRow}' onClick='editTable("${numberRow}")'>Edit</span>
     `)
 
+    // reset ค่าเก่าก่อนที่จะแก้ไข
     tbFullName.innerHTML = valueBeforeEdit._fullName[`${numberRow}`]
     tbAddress.innerHTML = valueBeforeEdit._address[`${numberRow}`]
 
+    // remove รูปแบบตารางเดิม
     edFullName.remove()
     edAddress.remove()
     btnSave.remove()
