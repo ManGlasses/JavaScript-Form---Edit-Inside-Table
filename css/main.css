@@ -37,6 +37,18 @@ body {
 .box-right {
   margin-left: auto; }
 
+.btnSave {
+  text-align: center;
+  box-sizing: border-box;
+  cursor: pointer; }
+
+.btnSave {
+  background-color: #018DFF;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 15px; }
+
 .form .container-row {
   justify-content: center;
   text-align: center; }
@@ -54,21 +66,9 @@ body {
     width: 12rem;
     height: 5.4rem;
     resize: none; }
-  .form .container-row input[type='button'] {
+  .form .container-row .btnSave {
     width: 8rem;
     margin-left: 4rem; }
-
-.btnSave {
-  text-align: center;
-  box-sizing: border-box;
-  cursor: pointer; }
-
-.btnSave {
-  background-color: #018DFF;
-  color: white;
-  border: none;
-  border-radius: 12px;
-  padding: 15px; }
 
 .manual {
   box-sizing: border-box;
