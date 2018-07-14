@@ -102,20 +102,20 @@ body {
   .table thead tr th:nth-child(1) {
     width: 8rem; }
   .table thead tr th:nth-child(2) {
-    width: 20rem; }
-  .table thead tr th:nth-child(3) {
     width: 17rem; }
+  .table thead tr th:nth-child(3) {
+    width: 25rem; }
   .table thead tr th:nth-child(4) {
     width: 6rem; }
   .table tbody tr td {
     height: 1.5rem; }
   .table tbody tr td:nth-child(2) input {
-    width: 20rem;
+    width: 12rem;
     padding: 0px;
     border-style: none;
     font-size: 20px; }
   .table tbody tr td:nth-child(3) input {
-    width: 17rem;
+    width: 19.3rem;
     padding: 0px;
     border-style: none;
     font-size: 20px; }

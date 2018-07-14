@@ -1,8 +1,8 @@
 @import 'frameworks/_table';
 $font-size_table: 20px;
 $width_cell1: 8rem;
-$width_cell2: 20rem;
-$width_cell3: 17rem;
+$width_cell2: 17rem;
+$width_cell3: 25rem;
 $width_cell4: 6rem;
 $height_row: 1.5rem;
 .table {
@@ -30,7 +30,7 @@ $height_row: 1.5rem;
         }
         tr td:nth-child(2) {
             input {
-                width: $width_cell2;
+                width: $width_cell2 - 5rem;
                 padding: 0px;
                 border-style: none;
                 font-size: $font-size_table;
@@ -38,7 +38,7 @@ $height_row: 1.5rem;
         }
         tr td:nth-child(3) {
             input {
-                width: $width_cell3;
+                width: $width_cell3 - 5.7rem;
                 padding: 0px;
                 border-style: none;
                 font-size: $font-size_table;

@@ -49,10 +49,12 @@ function editTable(numberRow) {
     // สร้างหลังจบ
     // สร้างรูปแบบตารางใหม่
     tbFullName.insertAdjacentHTML('afterend', `
-        <input id='edFullName${numberRow}' type='text' placeholder='กรุณากรอกชื่อ นามสกุล' />
+        <input id='edFullName${numberRow}' oninput='lengthFullName("${numberRow}");' type='text' placeholder='กรุณากรอกชื่อ นามสกุล' />
+        <span id='edCountFullName${numberRow}'></span>
     `)
     tbAddress.insertAdjacentHTML('afterend', `
-        <input id='edAddress${numberRow}' type='text' placeholder='บ้านเลขที่, ถนน, ตำบล, อำเภอ, จังหวัด' />
+        <input id='edAddress${numberRow}' oninput='lengthAddress("${numberRow}");' type='text' placeholder='บ้านเลขที่, ถนน, ตำบล, อำเภอ, จังหวัด' />
+        <span id='edCountAddress${numberRow}'></span>
     `)
     btnEdit.insertAdjacentHTML('afterend', `
         <span id='btnSave${numberRow}' onClick='checkInput("${numberRow}")'>Save</span>
@@ -77,6 +79,8 @@ function updateTable(numberRow) {
 
     let edFullName = document.getElementById(`edFullName${numberRow}`)
     let edAddress = document.getElementById(`edAddress${numberRow}`)
+    let edCountFullName = document.getElementById(`edCountFullName${numberRow}`)
+    let edCountAddress = document.getElementById(`edCountAddress${numberRow}`)
     let tbFullName = document.getElementById(`tbFullName${numberRow}`)
     let tbAddress = document.getElementById(`tbAddress${numberRow}`)
     let btnSave = document.getElementById(`btnSave${numberRow}`)
@@ -96,6 +100,8 @@ function updateTable(numberRow) {
     // remove รูปแบบตารางเดิม
     edFullName.remove()
     edAddress.remove()
+    edCountFullName.remove()
+    edCountAddress.remove()
     btnSave.remove()
     btnCancel.remove()
 
@@ -105,6 +111,8 @@ function btnCancel_Click(numberRow) {
 
     let edFullName = document.getElementById(`edFullName${numberRow}`)
     let edAddress = document.getElementById(`edAddress${numberRow}`)
+    let edCountFullName = document.getElementById(`edCountFullName${numberRow}`)
+    let edCountAddress = document.getElementById(`edCountAddress${numberRow}`)
     let tbFullName = document.getElementById(`tbFullName${numberRow}`)
     let tbAddress = document.getElementById(`tbAddress${numberRow}`)
     let btnSave = document.getElementById(`btnSave${numberRow}`)
@@ -122,6 +130,8 @@ function btnCancel_Click(numberRow) {
     // remove รูปแบบตารางเดิม
     edFullName.remove()
     edAddress.remove()
+    edCountFullName.remove()
+    edCountAddress.remove()
     btnSave.remove()
     btnCancel.remove()
 }
