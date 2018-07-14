@@ -55,6 +55,7 @@ function lengthFullName(numberRow = '') {
 
 function lengthAddress(numberRow = '') {
 
+    // In form
     if (numberRow == '') {
         let txtAddress = document.getElementById('txtAddress')
         let txtCountAddress = document.getElementById('txtCountAddress')
@@ -78,6 +79,7 @@ function lengthAddress(numberRow = '') {
         }
     }
 
+    // In table
     else {
         let edAddress = document.getElementById(`edAddress${numberRow}`)
         let edCountAddress = document.getElementById(`edCountAddress${numberRow}`)
@@ -127,13 +129,13 @@ function checkInput(numberRow = '') {
             alert('กรุณาอย่าใส่ข้อมูลที่เป็นตัวเลข ให้ใส่ข้อมูลที่เป็นตัวอักษรเท่านั้น')
         }
 
-        // else if (txtFullNameLength < MIN_FULLNAME_LEN || txtFullNameLength > MAX_FULLNAME_LEN) {
-        //     alert(`กรุณาใส่ข้อมูล "ชื่อ-นามสกุล" ที่ไม่ต่ำกว่า ${MIN_FULLNAME_LEN} หรือมากกว่า ${MAX_FULLNAME_LEN} ตัวอักษร`)
-        // }
+        else if (txtFullNameLength < MIN_FULLNAME_LEN || txtFullNameLength > MAX_FULLNAME_LEN) {
+            alert(`กรุณาใส่ข้อมูล "ชื่อ-นามสกุล" ที่ไม่ต่ำกว่า ${MIN_FULLNAME_LEN} หรือมากกว่า ${MAX_FULLNAME_LEN} ตัวอักษร`)
+        }
 
-        // else if (txtAddressLength < MIN_ADDRESS_LEN || txtAddressLength > MAX_ADDRESS_LEN) {
-        //     alert(`กรุณาใส่ข้อมูล "ที่อยู่" ที่ไม่ต่ำกว่า ${MIN_ADDRESS_LEN} หรือมากกว่า ${MAX_ADDRESS_LEN} ตัวอักษร`)
-        // }
+        else if (txtAddressLength < MIN_ADDRESS_LEN || txtAddressLength > MAX_ADDRESS_LEN) {
+            alert(`กรุณาใส่ข้อมูล "ที่อยู่" ที่ไม่ต่ำกว่า ${MIN_ADDRESS_LEN} หรือมากกว่า ${MAX_ADDRESS_LEN} ตัวอักษร`)
+        }
 
         else {
             insertTable()
@@ -154,13 +156,13 @@ function checkInput(numberRow = '') {
             alert('กรุณาอย่าใส่ข้อมูลที่เป็นตัวเลข ให้ใส่ข้อมูลที่เป็นตัวอักษรเท่านั้น')
         }
 
-        // else if (edFullNameLength < MIN_FULLNAME_LEN || edFullNameLength > MAX_FULLNAME_LEN) {
-        //     alert(`กรุณาใส่ข้อมูล "ชื่อ-นามสกุล" ที่ไม่ต่ำกว่า ${MIN_FULLNAME_LEN} หรือมากกว่า ${MAX_FULLNAME_LEN} ตัวอักษร`)
-        // }
+        else if (edFullNameLength < MIN_FULLNAME_LEN || edFullNameLength > MAX_FULLNAME_LEN) {
+            alert(`กรุณาใส่ข้อมูล "ชื่อ-นามสกุล" ที่ไม่ต่ำกว่า ${MIN_FULLNAME_LEN} หรือมากกว่า ${MAX_FULLNAME_LEN} ตัวอักษร`)
+        }
 
-        // else if (edAddressLength < MIN_ADDRESS_LEN || edAddressLength > MAX_ADDRESS_LEN) {
-        //     alert(`กรุณาใส่ข้อมูล "ที่อยู่" ที่ไม่ต่ำกว่า ${MIN_ADDRESS_LEN} หรือมากกว่า ${MAX_ADDRESS_LEN} ตัวอักษร`)
-        // }
+        else if (edAddressLength < MIN_ADDRESS_LEN || edAddressLength > MAX_ADDRESS_LEN) {
+            alert(`กรุณาใส่ข้อมูล "ที่อยู่" ที่ไม่ต่ำกว่า ${MIN_ADDRESS_LEN} หรือมากกว่า ${MAX_ADDRESS_LEN} ตัวอักษร`)
+        }
 
         else {
             updateTable(numberRow)
